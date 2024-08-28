@@ -1,38 +1,16 @@
-import { useState } from "react";
+import { useRef } from "react";
 
 export default function Login() {
-  // MANAGING & GETTING USER INPUT VIA STATE
-  // const [enteredEmail, setEnteredEmail] = useState("");
-  // const [enteredPassword, setenteredPassword] = useState("");
-
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  // }
-
-  // function handleEmailChange(event) {
-  //   setEnteredEmail(event.target.value);
-  // }
-
-  // function handlePasswordChange(event) {
-  //   setenteredPassword(event.target.value);
-  // }
-
-  // MANAGING & GETTING USER INPUT VIA GENERIC HANDLERS
-  const [enteredValues, setEnteredValues] = useState({
-    email: "",
-    password: "",
-  });
+  const email = useRef();
+  const password = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(enteredValues);
-  }
 
-  function handleInputChange(identifier, event) {
-    setEnteredValues((prevValues) => ({
-      ...prevValues,
-      [identifier]: event.target.value,
-    }));
+    const enteredEmail = email.current.value;
+    const enteredPassword = password.current.value;
+
+    console.log(enteredEmail, enteredPassword)
   }
 
   return (
@@ -42,24 +20,12 @@ export default function Login() {
       <div className="control-row">
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            onChange={(event) => handleInputChange("email", event)}
-            value={enteredValues.email}
-          />
+          <input id="email" type="email" name="email" ref={email} />
         </div>
 
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            onChange={(event) => handleInputChange("password", event)}
-            value={enteredValues.password}
-          />
+          <input id="password" type="password" name="password" ref={password} />
         </div>
       </div>
 
