@@ -10,7 +10,9 @@ export default function Login() {
     const enteredEmail = email.current.value;
     const enteredPassword = password.current.value;
 
-    console.log(enteredEmail, enteredPassword)
+    console.log(enteredEmail, enteredPassword);
+
+    event.target.reset();
   }
 
   return (
