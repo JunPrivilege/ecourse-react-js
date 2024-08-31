@@ -57,7 +57,9 @@ export default function Login() {
             onChange={(event) => handleInputChange("email", event)}
             value={enteredValues.email}
           />
-          <div className="control-error">{emailIsInvalid && <p>Please enter a valid email address.</p>}</div>
+          <div className="control-error">
+            {emailIsInvalid && <p>Please enter a valid email address.</p>}
+          </div>
         </div>
 
         <div className="control no-margin">
