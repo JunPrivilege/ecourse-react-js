@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import Input from "./Input";
+import { isEmail, isNotEmpty, hasMinLength } from "../util/validation.js";
 
 export default function Login() {
   // MANAGING & GETTING USER INPUT VIA STATE
@@ -29,9 +31,14 @@ export default function Login() {
     password: false,
   });
 
-  const emailIsInvalid = didEdit.email && !enteredValues.email.includes("@");
+  const emailIsInvalid =
+    didEdit.email &&
+    (!isEmail(enteredValues.email) || !isNotEmpty(enteredValues.email));
+
   const passwordIsInvalid =
-    didEdit.password && enteredValues.password.trim().length < 6;
+    didEdit.password &&
+    (!isNotEmpty(enteredValues.password) ||
+      !hasMinLength(enteredValues.password, 6));
 
   function handleSubmit(event) {
     event.preventDefault();
