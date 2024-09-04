@@ -125,6 +125,7 @@ h1 {
 
 .modal-actions .text-button {
   color: #1d1a16;
+  border-color: transparent;
 }
 
 .modal-actions .text-button:hover,
