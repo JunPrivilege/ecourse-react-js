@@ -33,7 +33,7 @@ const authSlice = createSlice({
       state.isAuthentication = true;
     },
     logout(state) {
-      state.isAuthentication = true;
+      state.isAuthentication = false;
     },
   },
 });
