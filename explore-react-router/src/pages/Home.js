@@ -1,7 +1,16 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 function HomePage() {
-  return <p>This is my HomePage</p>;
+  return (
+    <>
+      <h1>This is my HomePage</h1>
+      <p>
+        Go to <Link to="/products">the list of products</Link>
+      </p>
+    </>
+  );
 }
 
 export default HomePage;
