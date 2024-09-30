@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function EventDetailPage() {
   const params = useParams();
@@ -9,6 +9,11 @@ function EventDetailPage() {
     <>
       <h1>EventDetailPage</h1>
       {params.eventId}
+      <p>
+        <Link to=".." relative="path">
+          Back
+        </Link>
+      </p>
     </>
   );
 }
